@@ -7,8 +7,4 @@
     group = "users";
     mode = "600";
   };
-
-  # environment.systemPackages = with pkgs; [
-  #   agenix
-  # ];
 }

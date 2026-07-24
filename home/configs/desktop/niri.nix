@@ -10,7 +10,7 @@
 
     spawn-at-startup = [
       { argv = [ "ghostty" ]; }
-      { argv = [ "waybar" ]; }
+      { argv = [ "qs" ]; }
     ];
 
     environment."NIXOS_OZONE_WL" = "1";

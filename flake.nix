@@ -9,6 +9,7 @@
 
     niri.url = "github:sodiboo/niri-flake";
     agenix.url = "github:ryantm/agenix";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       home-manager,
       niri,
       agenix,
+      quickshell,
       ...
     }@inputs:
     let
@@ -25,6 +27,10 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+
+        overlays = [
+          inputs.quickshell.overlays.default
+        ];
       };
     in
     {
@@ -47,6 +53,7 @@
             }
 
             niri.nixosModules.niri
+
             agenix.nixosModules.default
           ];
         };

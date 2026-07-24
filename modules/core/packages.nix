@@ -12,9 +12,9 @@
     gh
 
     nixfmt
+    qt6.qtdeclarative
 
     fuzzel
-    waybar
     mako
     wl-clipboard
 

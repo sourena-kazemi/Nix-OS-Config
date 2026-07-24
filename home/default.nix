@@ -8,16 +8,10 @@
 {
   imports = [
     ./configs/desktop/niri.nix
+    ./configs/desktop/quickshell.nix
     ./configs/terminal/ghostty.nix
+    ./configs/tools/git.nix
   ];
-
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "sourena-kazemi";
-      email = "kazemisourena@gmail.com";
-    };
-  };
 
   home.stateVersion = "26.05";
 }
