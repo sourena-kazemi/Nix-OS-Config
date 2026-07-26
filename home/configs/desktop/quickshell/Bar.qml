@@ -1,27 +1,38 @@
 import QtQuick
-import QtQuick.Layouts
-
-import Quickshell
-import Quickshell.Wayland
-
-import "widgets"
 import "layout"
+import "theme"
 
 Item {
-    RowLayout {
-        anchors.fill: parent
-        LeftSection {}
+    id: root
+    anchors.fill: parent
 
-        Item {
-            Layout.fillWidth: true
+    LeftSection {
+        id: leftSection
+
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+
+            leftMargin: Theme.sizes.paddingM
         }
 
-        CenterSection {}
+        width: parent.width * 0.20
+    }
 
-        Item {
-            Layout.fillWidth: true
+    CenterSection {
+        anchors.centerIn: parent
+    }
+
+    RightSection {
+        anchors {
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+
+            rightMargin: Theme.sizes.paddingM
         }
 
-        RightSection {}
+        width: 300
     }
 }

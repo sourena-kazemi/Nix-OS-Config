@@ -1,20 +1,26 @@
 import QtQuick
-import QtQuick.Layouts
+import "../services"
+import "../components"
+import "../theme"
 
-Item {
-    Rectangle {
-        anchors.fill: parent
-        ColumnLayout {
-            anchors.centerIn: parent
-            Text {
-                text: "9:55 PM"
-                Layout.alignment: Qt.AlignHCenter
-            }
+Surface {
+    implicitWidth: content.implicitWidth + Theme.sizes.paddingL * 2
+    implicitHeight: content.implicitHeight + Theme.sizes.paddingM * 2
 
-            Text {
-                text: "Jul 24"
-                Layout.alignment: Qt.AlignHCenter
-            }
+    Row {
+        id: content
+        spacing: Theme.sizes.spacingM
+        anchors.centerIn: parent
+
+        Text {
+            text: TimeService.formatTime(TimeService.now)
+            font.weight: Theme.typography.weightBold
+            color: Theme.colors.textPrimary
+        }
+        Text {
+            text: TimeService.formatGregorianDate(TimeService.now)
+            font.weight: Theme.typography.weightBold
+            color: Theme.colors.textPrimary
         }
     }
 }

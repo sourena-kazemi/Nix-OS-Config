@@ -1,5 +1,10 @@
 import QtQuick
-import Quickshell
 import "../widgets"
 
-Clock {}
+Item {
+    implicitWidth: clock.implicitWidth
+    implicitHeight: clock.implicitHeight
+    Clock {
+        id: clock
+    }
+}

@@ -35,6 +35,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  time.timeZone = "Asia/Tehran";
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = true;

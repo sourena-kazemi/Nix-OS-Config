@@ -1,15 +1,21 @@
 import Quickshell
 import "."
+import "theme"
 
 ShellRoot {
     PanelWindow {
+        implicitHeight: Theme.sizes.barHeight
+        color: Theme.colors.transparent
+
         anchors {
             left: true
             right: true
             top: true
         }
-        Bar {
-            anchors.fill: parent
+        margins {
+            top: Theme.sizes.paddingS
         }
+
+        Bar {}
     }
 }
