@@ -2,6 +2,8 @@ pragma Singleton
 
 import QtQuick
 
+import "../utils/Jalaali.js" as Jalaali
+
 Item {
     id: root
 
@@ -30,7 +32,12 @@ Item {
     }
 
     function formatJalaliDate(date) {
-        // TODO
-        return "1405/05/04";
+        const j = Jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
+
+        return `${pad(j.jm)}/${pad(j.jd)}`;
+    }
+
+    function pad(n) {
+        return n < 10 ? "0" + n : n.toString();
     }
 }
