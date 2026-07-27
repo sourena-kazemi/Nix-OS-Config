@@ -10,17 +10,20 @@ Surface {
     implicitWidth: content.implicitWidth + Theme.sizes.paddingL * 2
     implicitHeight: Theme.sizes.barHeight
 
+    property bool timeHovering: false
+    property bool dateHovering: false
+
+    property bool initialTime: false
+    property bool initialDate: false
+
+    property bool timeClicked: false
+    property bool dateClicked: false
+
     property bool secondsEnabled: false
     property bool jalaliEnabled: false
 
-    property bool previewSeconds: false
-    property bool previewJalali: false
-
-    property bool secondsClickedWhilePreviewing: false
-    property bool jalaliClickedWhilePreviewing: false
-
-    readonly property bool showSeconds: previewSeconds ? (secondsClickedWhilePreviewing ? secondsEnabled : !secondsEnabled) : secondsEnabled
-    readonly property bool showJalali: previewJalali ? (jalaliClickedWhilePreviewing ? jalaliEnabled : !jalaliEnabled) : jalaliEnabled
+    readonly property bool showSeconds: timeHovering && !timeClicked ? !initialTime : secondsEnabled
+    readonly property bool showJalali: dateHovering && !dateClicked ? !initialDate : jalaliEnabled
 
     Row {
         id: content
@@ -35,27 +38,59 @@ Surface {
             implicitHeight: time.implicitHeight
 
             onEntered: {
-                root.previewSeconds = true;
-                root.secondsClickedWhilePreviewing = false;
+                root.initialTime = showSeconds;
+                root.timeClicked = false;
+                root.timeHovering = true;
             }
 
             onExited: {
-                root.previewSeconds = false;
-                root.secondsClickedWhilePreviewing = false;
+                root.timeHovering = false;
+                root.timeClicked = false;
             }
 
             onClicked: {
                 root.secondsEnabled = !root.secondsEnabled;
-                root.secondsClickedWhilePreviewing = true;
+                root.timeClicked = true;
             }
 
-            Text {
+            AnimatedSwitcher {
                 id: time
 
-                text: root.showSeconds ? TimeService.formatTimeWithSeconds(TimeService.now) : TimeService.formatTime(TimeService.now)
+                currentIndex: root.showSeconds ? 1 : 0
+                upward: root.showSeconds
 
-                font.weight: Theme.typography.weightBold
-                color: Theme.colors.textPrimary
+                first: Component {
+                    Item {
+                        implicitWidth: timeLabel.implicitWidth
+                        implicitHeight: timeLabel.implicitHeight
+
+                        Text {
+                            id: timeLabel
+                            text: TimeService.formatTime(TimeService.now)
+
+                            font.weight: Theme.typography.weightBold
+                            color: Theme.colors.textPrimary
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
+
+                second: Component {
+                    Item {
+
+                        implicitWidth: timeWithSecondsLabel.implicitWidth
+                        implicitHeight: timeWithSecondsLabel.implicitHeight
+
+                        Text {
+                            id: timeWithSecondsLabel
+                            text: TimeService.formatTimeWithSeconds(TimeService.now)
+
+                            font.weight: Theme.typography.weightBold
+                            color: Theme.colors.textPrimary
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
             }
         }
 
@@ -66,27 +101,60 @@ Surface {
             implicitHeight: date.implicitHeight
 
             onEntered: {
-                root.previewJalali = true;
-                root.jalaliClickedWhilePreviewing = false;
+                root.initialDate = showJalali;
+                root.dateClicked = false;
+                root.dateHovering = true;
             }
 
             onExited: {
-                root.previewJalali = false;
-                root.jalaliClickedWhilePreviewing = false;
+                root.dateHovering = false;
+                root.dateClicked = false;
             }
 
             onClicked: {
                 root.jalaliEnabled = !root.jalaliEnabled;
-                root.jalaliClickedWhilePreviewing = true;
+                root.dateClicked = true;
             }
 
-            Text {
+            AnimatedSwitcher {
                 id: date
 
-                text: root.showJalali ? TimeService.formatJalaliDate(TimeService.now) : TimeService.formatGregorianDate(TimeService.now)
+                currentIndex: root.showJalali ? 1 : 0
+                upward: root.showJalali
 
-                font.weight: Theme.typography.weightBold
-                color: Theme.colors.textPrimary
+                first: Component {
+
+                    Item {
+                        implicitWidth: dateLabel.implicitWidth
+                        implicitHeight: dateLabel.implicitHeight
+
+                        Text {
+                            id: dateLabel
+                            text: TimeService.formatGregorianDate(TimeService.now)
+
+                            font.weight: Theme.typography.weightBold
+                            color: Theme.colors.textPrimary
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
+
+                second: Component {
+
+                    Item {
+                        implicitWidth: jalaliDateLabel.implicitWidth + 2 * Theme.sizes.paddingS
+                        implicitHeight: jalaliDateLabel.implicitHeight
+
+                        Text {
+                            id: jalaliDateLabel
+                            text: TimeService.formatJalaliDate(TimeService.now)
+
+                            font.weight: Theme.typography.weightBold
+                            color: Theme.colors.textPrimary
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
             }
         }
     }
