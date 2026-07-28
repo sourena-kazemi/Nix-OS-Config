@@ -57,7 +57,6 @@ Surface {
                 id: time
 
                 currentIndex: root.showSeconds ? 1 : 0
-                upward: root.showSeconds
 
                 first: Component {
                     Item {
@@ -120,7 +119,6 @@ Surface {
                 id: date
 
                 currentIndex: root.showJalali ? 1 : 0
-                upward: root.showJalali
 
                 first: Component {
 

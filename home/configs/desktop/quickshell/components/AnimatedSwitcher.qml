@@ -5,7 +5,6 @@ Item {
     id: root
 
     property int currentIndex: 0
-    property bool upward: true
 
     property Component first
     property Component second
@@ -40,7 +39,7 @@ Item {
 
             PropertyChanges {
                 target: secondLoader.item
-                y: root.upward ? -root.height : root.height
+                y: -root.height
             }
         },
         State {
@@ -49,7 +48,7 @@ Item {
 
             PropertyChanges {
                 target: firstLoader.item
-                y: root.upward ? root.height : -root.height
+                y: root.height
             }
 
             PropertyChanges {
