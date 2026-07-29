@@ -9,4 +9,6 @@
   environment.systemPackages = with pkgs; [
     inputs.quickshell.packages."${pkgs.system}".default
   ];
+
+  services.upower.enable = true;
 }
