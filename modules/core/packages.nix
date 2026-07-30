@@ -9,7 +9,6 @@
     htop
     tree
     ripgrep
-    gh
 
     nixfmt
     qt6.qtdeclarative
@@ -19,5 +18,11 @@
     wl-clipboard
 
     ghostty
+
+    google-chrome
+    vscode
+    telegram-desktop
+    obsidian
+
   ];
 }
