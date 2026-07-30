@@ -4,7 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.UPower
 
-Item {
+QtObject {
     id: root
 
     readonly property var battery: UPower.displayDevice

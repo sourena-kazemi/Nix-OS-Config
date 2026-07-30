@@ -48,13 +48,13 @@ Item {
         anchors.fill: parent
         visible: root.powerSaving
         source: "../../assets/icons/battery/battery-powerSaving.svg"
-        color: Theme.colors.accent
+        color: Theme.colors.success
     }
 
     IconImage {
         anchors.fill: parent
         visible: root.warning
         source: "../../assets/icons/battery/battery-warning.svg"
-        color: Theme.colors.accent
+        color: Theme.colors.danger
     }
 }

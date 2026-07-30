@@ -7,7 +7,7 @@ import "../../theme"
 
 Item {
     id: root
-    implicitWidth: content.implicitWidth + Theme.sizes.paddingL * 2
+    implicitWidth: content.implicitWidth
     implicitHeight: Theme.sizes.barHeight
 
     property bool previewPercentage: false
