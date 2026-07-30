@@ -33,6 +33,6 @@ Item {
             rightMargin: Theme.sizes.paddingM
         }
 
-        width: 300
+        width: implicitWidth
     }
 }
