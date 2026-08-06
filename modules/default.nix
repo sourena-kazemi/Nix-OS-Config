@@ -7,5 +7,6 @@
     ./desktop/quickshell-system.nix
     ./terminal/ghostty-system.nix
     ./security/agenix.nix
+    ./input/keyd-service.nix
   ];
 }

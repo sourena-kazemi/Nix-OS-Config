@@ -9,5 +9,4 @@ QtObject {
     readonly property Radius radius: Radius {}
     readonly property Typography typography: Typography {}
     readonly property Motion motion: Motion {}
-    readonly property Metadata metadata: Metadata {}
 }
