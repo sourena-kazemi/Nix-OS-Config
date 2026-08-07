@@ -1,9 +1,9 @@
 import QtQuick
 
 QtObject {
-    readonly property real iconScale: 1
-    readonly property real paddingScale: 1
-    readonly property real spacingScale: 1
+    readonly property real iconScale: ThemeLoader.size.iconScale
+    readonly property real paddingScale: ThemeLoader.size.paddingScale
+    readonly property real spacingScale: ThemeLoader.size.spacingScale
 
     readonly property real barHeight: 34
     readonly property real indicatorSize: 30
@@ -29,5 +29,5 @@ QtObject {
     readonly property real panelPadding: 12 * paddingScale
     readonly property real panelGap: 8 * spacingScale
 
-    readonly property real borderWidth: 1
+    readonly property real borderWidth: ThemeLoader.size.borderWidth
 }

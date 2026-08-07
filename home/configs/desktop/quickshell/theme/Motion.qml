@@ -1,7 +1,7 @@
 import QtQuick
 
 QtObject {
-    readonly property real durationScale: 1
+    readonly property real durationScale: ThemeLoader.motion.durationScale
 
     readonly property int instant: 0
 
@@ -9,5 +9,5 @@ QtObject {
     readonly property int normal: 200 * durationScale
     readonly property int slow: 350 * durationScale
 
-    readonly property int easing: Easing.OutCubic
+    readonly property int easing: Easing[ThemeLoader.data.motion.easing]
 }

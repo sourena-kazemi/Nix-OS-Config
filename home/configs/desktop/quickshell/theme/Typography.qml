@@ -4,6 +4,7 @@ QtObject {
     readonly property real scale: 1
 
     readonly property string family: "Inter"
+    readonly property string monoFamily: "Inter"
 
     readonly property real tiny: 10 * scale
     readonly property real small: 12 * scale
