@@ -11,7 +11,8 @@
   };
 
   home.file.".config/ghostty/config".text = ''
-    theme=catppuccin-frappe
+    theme=poimandres storm
+    config-file=?auto/theme.ghostty
 
     keybind = ctrl+shift+h=new_split:left
     keybind = ctrl+shift+l=new_split:right

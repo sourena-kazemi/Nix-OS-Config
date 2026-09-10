@@ -9,4 +9,6 @@
   };
 
   services.displayManager.defaultSession = "niri";
+
+  security.pam.services.swaylock = { };
 }

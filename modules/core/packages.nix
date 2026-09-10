@@ -19,7 +19,9 @@
 
     fuzzel
     mako
+    libnotify
     wl-clipboard
+    wl-screenrec
 
     ghostty
 
@@ -29,5 +31,8 @@
     obsidian
 
     awww
+
+    brightnessctl
+    ddcutil
   ];
 }

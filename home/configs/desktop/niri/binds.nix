@@ -7,6 +7,17 @@
   binds = with config.lib.niri.actions; {
     "Mod+Shift+Slash".action.show-hotkey-overlay = { };
 
+    "Ctrl+F12" = {
+      hotkey-overlay.title = "Take a Screenshot";
+      repeat = false;
+      action.screenshot = { };
+    };
+    "Ctrl+Shift+F12" = {
+      hotkey-overlay.title = "Toggle Screen Recording";
+      repeat = false;
+      action.spawn = "toggle-screenrec";
+    };
+
     "Mod+Return" = {
       hotkey-overlay.title = "Open a Terminal: ghostty";
       action.spawn = "ghostty";
