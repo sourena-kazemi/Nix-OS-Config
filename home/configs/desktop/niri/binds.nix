@@ -22,6 +22,10 @@
       hotkey-overlay.title = "Open a Terminal: ghostty";
       action.spawn = "ghostty";
     };
+    "Mod+A" = {
+      hotkey-overlay.title = "Open a File Manager: Nautilus";
+      action.spawn = "nautilus";
+    };
     "Mod+B" = {
       hotkey-overlay.title = "Open a Browser: Chrome";
       action.spawn = "google-chrome-stable";

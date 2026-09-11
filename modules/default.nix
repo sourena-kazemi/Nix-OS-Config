@@ -6,6 +6,7 @@
     ./core/scripts.nix
     ./core/hardware.nix
     ./desktop/niri-system.nix
+    ./desktop/files.nix
     ./desktop/quickshell-system.nix
     ./terminal/ghostty-system.nix
     ./security/agenix.nix
