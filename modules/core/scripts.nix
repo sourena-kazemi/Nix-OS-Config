@@ -10,5 +10,14 @@
       ];
       text = builtins.readFile ../../home/scripts/toggle-screenrec.sh;
     })
+    (pkgs.writeShellApplication {
+      name = "clipboard-history";
+      runtimeInputs = with pkgs; [
+        cliphist
+        fuzzel
+        wl-clipboard
+      ];
+      text = builtins.readFile ../../home/scripts/clipboard-history.sh;
+    })
   ];
 }

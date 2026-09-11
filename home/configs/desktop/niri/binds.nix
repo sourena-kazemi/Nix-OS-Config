@@ -38,6 +38,11 @@
       hotkey-overlay.title = "Open Launcher: Fuzzel";
       action.spawn = "fuzzel";
     };
+    "Alt+V" = {
+      hotkey-overlay.title = "Clipboard History";
+      repeat = false;
+      action.spawn = "clipboard-history";
+    };
     "Mod+T" = {
       hotkey-overlay.title = "Open Telegram";
       action.spawn = "Telegram";

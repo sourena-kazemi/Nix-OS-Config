@@ -21,6 +21,8 @@
     mako
     libnotify
     wl-clipboard
+    wl-clip-persist
+    cliphist
     wl-screenrec
 
     ghostty
