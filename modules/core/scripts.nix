@@ -19,5 +19,13 @@
       ];
       text = builtins.readFile ../../home/scripts/clipboard-history.sh;
     })
+    (pkgs.writeShellApplication {
+      name = "vpn";
+      runtimeInputs = with pkgs; [
+        networkmanager
+        libnotify
+      ];
+      text = builtins.readFile ../../home/scripts/vpn.sh;
+    })
   ];
 }
