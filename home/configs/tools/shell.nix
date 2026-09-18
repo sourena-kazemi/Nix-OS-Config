@@ -10,22 +10,26 @@
     enable = true;
     enableBashIntegration = true;
     defaultOptions = [
-      # Copy absolute path of selected entry
-      "--bind=ctrl-y:execute-silent(readlink -f {} | wl-copy)"
-      # Copy file contents of selected entry
-      "--bind=ctrl-alt-y:execute-silent(wl-copy < {})"
+      "--bind='ctrl-y:execute-silent(readlink -f {} | wl-copy)'"
+      "--bind='ctrl-alt-y:execute-silent(wl-copy < {})'"
     ];
   };
 
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
-    options = [ "--cmd" "cd" ];
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 
   programs.atuin = {
     enable = true;
     enableBashIntegration = true;
+    settings = {
+      enter_accept = false;
+    };
     flags = [ "--disable-up-arrow" ];
   };
 }

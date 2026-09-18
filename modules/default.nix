@@ -12,5 +12,6 @@
     ./security/agenix.nix
     ./input/keyd-service.nix
     ./dev/docker.nix
+    ./network/l2tp.nix
   ];
 }
