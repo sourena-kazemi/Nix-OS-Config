@@ -14,6 +14,7 @@
     ./configs/session/swaylock.nix
     ./configs/terminal/ghostty.nix
     ./configs/tools/git.nix
+    ./configs/tools/shell.nix
     ./theme/jsonTheme.nix
     ./theme/darkMode.nix
     ./assets/wallpaper.nix

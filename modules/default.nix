@@ -11,5 +11,6 @@
     ./terminal/ghostty-system.nix
     ./security/agenix.nix
     ./input/keyd-service.nix
+    ./dev/docker.nix
   ];
 }

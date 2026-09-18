@@ -27,10 +27,19 @@
 
     ghostty
 
+    code-cursor
     google-chrome
     vscode
     telegram-desktop
     obsidian
+
+    python3
+    go
+    nodejs
+    pnpm
+
+    ffmpeg
+    mpv
 
     awww
 
