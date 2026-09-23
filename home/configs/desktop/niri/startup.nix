@@ -7,6 +7,10 @@
       command = [ "awww-daemon" ];
     }
     {
+      command = [ "blueman-applet" ];
+    }
+    { command = [ "xwayland-satellite" ]; }
+    {
       command = [
         "wl-clip-persist"
         "--clipboard"

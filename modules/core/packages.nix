@@ -45,5 +45,7 @@
 
     brightnessctl
     ddcutil
+
+    xwayland-satellite
   ];
 }

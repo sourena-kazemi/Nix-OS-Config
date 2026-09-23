@@ -5,6 +5,7 @@
     ./core/packages.nix
     ./core/scripts.nix
     ./core/hardware.nix
+    ./hardware/bluetooth.nix
     ./desktop/niri-system.nix
     ./desktop/files.nix
     ./desktop/quickshell-system.nix
@@ -13,5 +14,6 @@
     ./input/keyd-service.nix
     ./dev/docker.nix
     ./network/l2tp.nix
+    ./network/throne.nix
   ];
 }

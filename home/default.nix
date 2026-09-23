@@ -10,6 +10,7 @@
     ./configs/desktop/niri.nix
     ./configs/desktop/quickshell.nix
     ./configs/desktop/awww.nix
+    ./configs/desktop/mako.nix
     ./configs/session/idle.nix
     ./configs/session/swaylock.nix
     ./configs/terminal/ghostty.nix
