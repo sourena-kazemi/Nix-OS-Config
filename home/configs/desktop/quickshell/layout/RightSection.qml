@@ -25,6 +25,8 @@ Item {
                 verticalCenter: parent.verticalCenter
             }
 
+            KeyboardIndicator {}
+
             NetworkIndicator {}
 
             VolumeIndicator {}
