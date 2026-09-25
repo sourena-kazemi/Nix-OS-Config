@@ -18,6 +18,7 @@
     ./configs/tools/shell.nix
     ./theme/jsonTheme.nix
     ./theme/darkMode.nix
+    ./theme/cursor.nix
     ./assets/wallpaper.nix
   ];
 
