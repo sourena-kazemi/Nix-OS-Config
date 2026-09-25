@@ -40,6 +40,8 @@
 
     ffmpeg
     mpv
+    kew
+    playerctl
 
     awww
 

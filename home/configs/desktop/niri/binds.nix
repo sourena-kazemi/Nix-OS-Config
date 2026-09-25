@@ -157,5 +157,10 @@
 
     "Mod+E".action.expand-column-to-available-width = { };
     "Mod+Shift+E".action.reset-window-height = { };
+
+    "XF86AudioPlay".action.spawn = [ "playerctl" "play" ];
+    "XF86AudioPause".action.spawn = [ "playerctl" "pause" ];
+    "XF86AudioNext".action.spawn = [ "playerctl" "next" ];
+    "XF86AudioPrev".action.spawn = [ "playerctl" "previous" ];
   };
 }
