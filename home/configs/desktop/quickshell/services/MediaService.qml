@@ -2,6 +2,7 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
+import Quickshell.Io
 import Quickshell.Services.Mpris
 
 Singleton {
@@ -36,6 +37,28 @@ Singleton {
 
     readonly property string artUrl: player && player.trackArtUrl ? player.trackArtUrl : ""
 
+    Process {
+        id: kewProcess
+
+        command: [ "kew","all" ]
+    }
+
+    function launch() {
+        if (active)
+            return;
+
+        kewProcess.running = true;
+    }
+
+    function playPause() {
+        if (!player) {
+            launch();
+            return;
+        }
+
+        player.togglePlaying();
+    }
+
     readonly property string displayTitle: {
         if (!active)
             return "";
@@ -44,12 +67,6 @@ Singleton {
         if (artist.length > 0)
             return artist;
         return player.identity || "Music";
-    }
-
-    function playPause() {
-        if (!player)
-            return;
-        player.togglePlaying();
     }
 
     function next() {

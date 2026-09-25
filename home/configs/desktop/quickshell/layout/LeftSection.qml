@@ -1,6 +1,13 @@
 import QtQuick
 import "../widgets"
 
+import "../services"
+
 Item {
-    Music {}
+    implicitWidth: music.implicitWidth
+    
+    Music {
+        id:music
+        anchors.fill: parent
+    }
 }

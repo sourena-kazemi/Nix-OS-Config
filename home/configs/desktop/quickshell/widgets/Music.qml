@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.impl
+import QtQuick.Effects
 
 import "../components"
 import "../services"
@@ -9,6 +10,18 @@ Surface {
     id: root
 
     anchors.fill: parent
+
+    implicitWidth: MediaService.active
+            ? 300
+            : Theme.sizes.iconSmall + (2*Theme.sizes.paddingM)
+
+    Behavior on implicitWidth {
+        NumberAnimation {
+            duration: Theme.motion.normal
+            easing.type: Theme.motion.easing
+        }
+    }
+
     clip: true
 
     readonly property bool hasArt: MediaService.artUrl.length > 0
@@ -21,47 +34,80 @@ Surface {
             margins: Theme.sizes.paddingXS
         }
 
-        clip: true
-
         Image {
+            id: cover
+
             anchors.fill: parent
+
             visible: root.hasArt && MediaService.active
             source: MediaService.artUrl
+
             fillMode: Image.PreserveAspectCrop
             asynchronous: true
             cache: true
             smooth: true
+
+            layer.enabled: true
+            layer.effect: MultiEffect {
+                maskEnabled: true
+                maskSource: mask
+            }
+        }
+
+        Rectangle {
+            id: mask
+
+            anchors.fill: parent
+            radius: Theme.radius.pill
+            visible: false
+            layer.enabled: true
         }
 
         Rectangle {
             anchors.fill: parent
-            visible: MediaService.active
-            color: root.hasArt ? Theme.colors.overlay : Theme.colors.transparent
+            visible: root.hasArt && MediaService.active
+
             radius: Theme.radius.pill
+
+            // Dedicated dark scrim over album artwork.
+            color: "#70000000"
         }
     }
 
-    // Double-click left → previous, right → next (under the play button)
-    MouseArea {
+    Item {
         anchors {
             left: parent.left
             top: parent.top
             bottom: parent.bottom
         }
+
         width: parent.width / 2
-        enabled: MediaService.active
-        onDoubleClicked: MediaService.previous()
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            exclusiveSignals: TapHandler.SingleTap | TapHandler.DoubleTap
+
+            onSingleTapped: MediaService.playPause()
+            onDoubleTapped: MediaService.previous()
+        }
     }
 
-    MouseArea {
+    Item {
         anchors {
             right: parent.right
             top: parent.top
             bottom: parent.bottom
         }
+
         width: parent.width / 2
-        enabled: MediaService.active
-        onDoubleClicked: MediaService.next()
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            exclusiveSignals: TapHandler.SingleTap | TapHandler.DoubleTap
+
+            onSingleTapped: MediaService.playPause()
+            onDoubleTapped: MediaService.next()
+        }
     }
 
     Row {
@@ -74,7 +120,6 @@ Surface {
         }
 
         spacing: Theme.sizes.spacingS
-        visible: MediaService.active
         z: 1
 
         Item {
@@ -90,12 +135,6 @@ Surface {
                 source: MediaService.playing ? "../assets/icons/actions/pause.svg" : "../assets/icons/actions/play.svg"
                 color: Theme.colors.textPrimary
             }
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: MediaService.playPause()
-            }
         }
 
         Text {
@@ -107,7 +146,7 @@ Surface {
             text: MediaService.displayTitle
             color: Theme.colors.textPrimary
             font.weight: Theme.typography.weightBold
-            font.pixelSize: Theme.typography.body
+            font.pixelSize: Theme.typography.small
 
             elide: Text.ElideRight
             verticalAlignment: Text.AlignVCenter

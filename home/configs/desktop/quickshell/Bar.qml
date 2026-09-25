@@ -17,7 +17,7 @@ Item {
             leftMargin: Theme.sizes.paddingM
         }
 
-        width: parent.width * 0.20
+        width:implicitWidth
     }
 
     CenterSection {
