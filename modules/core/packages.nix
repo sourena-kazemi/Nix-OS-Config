@@ -14,6 +14,9 @@
     tree
     ripgrep
     gcc
+    gnumake
+    pkg-config
+    jq
 
     nixfmt
     qt6.qtdeclarative

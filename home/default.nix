@@ -17,6 +17,7 @@
     ./configs/terminal/ghostty.nix
     ./configs/tools/git.nix
     ./configs/tools/shell.nix
+    ./configs/tools/vim.nix
     ./theme/jsonTheme.nix
     ./theme/darkMode.nix
     ./theme/cursor.nix
