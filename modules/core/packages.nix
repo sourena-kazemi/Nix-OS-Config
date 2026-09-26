@@ -13,6 +13,7 @@
     htop
     tree
     ripgrep
+    gcc
 
     nixfmt
     qt6.qtdeclarative

@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./configs/system/config.nix
     ./configs/desktop/niri.nix
     ./configs/desktop/quickshell.nix
     ./configs/desktop/awww.nix
