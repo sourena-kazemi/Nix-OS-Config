@@ -8,9 +8,13 @@
 {
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "sourena-kazemi";
-      email = "kazemisourena@gmail.com";
+    settings = {
+      user = {
+        name = "sourena-kazemi";
+        email = "kazemisourena@gmail.com";
+      };
+      core.editor="vim";
     };
+
   };
 }
