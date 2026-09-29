@@ -25,7 +25,7 @@ Item {
     function setVolume(value) {
         if (!audio)
             return;
-        audio.volume = Math.max(0, Math.min(1, value));
+        audio.volume = Math.max(0, Math.min(1.5, value));
     }
 
     function increase(step = 0.05) {
