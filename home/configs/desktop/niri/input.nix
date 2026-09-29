@@ -1,7 +1,10 @@
 {
   input = {
     keyboard = {
-      xkb.layout = "us,ir";
+      xkb = {
+        layout="us,ir";
+        variant=",winkeys";
+      };
       repeat-delay = 250;
       repeat-rate = 40;
     };
